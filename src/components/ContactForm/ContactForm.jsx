@@ -2,7 +2,6 @@ import React from "react";
 import { Formik, } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
-// import PropTypes from "prop-types";
 import {useDispatch, useSelector} from 'react-redux';
 import {createContact} from '../../redux/slice/contactSlice';
 
@@ -30,12 +29,12 @@ export const ContactForm = () => {
             name: values.name,
             number: values.number,
             id: nanoid(),
-        }
+        };
         if (contacts.find(contact => contact.name === newArray.name)) {
             return alert(`${newArray.name} is already in contacts`);
           }
         
-        dispatch(createContact(newArray))
+        dispatch(createContact(newArray));
         resetForm(); 
     };
 
@@ -70,11 +69,6 @@ export const ContactForm = () => {
                 </Label>
                 <Button type="submit">Add contact</Button>
             </FormStyled>
-
             </Formik>
     )
 }
-
-// ContactForm.propTypes = {
-//     onSubmit: PropTypes.func.isRequired
-// };

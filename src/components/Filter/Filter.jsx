@@ -7,17 +7,19 @@ export const Filter = () => {
     const dispatch = useDispatch();
 
     const value = useSelector(state => state.filter);
-    console.log(value)
 
     const changeFilter = e => {
        dispatch(filterContacts(e.currentTarget.value));
       };
-
     
     return(
         <Div>
             <Label htmlFor="filter">Find contacts by name
-                <FormInput type="text" value={value} name="filter" onChange={changeFilter} />
+                <FormInput 
+                type="text" 
+                value={value} 
+                name="filter" 
+                onChange={changeFilter} />
             </Label>
         </Div>
     )
